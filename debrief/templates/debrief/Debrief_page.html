@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}End of experiment. {% endblock %}
+
+{% block content %}
+
+This experiment is now over. 
+<p>
+You finished with {{ player.participant.payoff }}. 
+<p>
+{% if player.participant.payoff < 100 %}
+Since this was below the threshold, you will receive no bonus. Bad luck, but thank you for taking part anyway. 
+                                     
+{% else %}
+This means we will award you a bonus at a rate of 3 pence per point. We will do this via Prolific shortly. 
+
+{% endif %}
+<p>
+In this experiment, we were trying to learn something about how desperation (in this case, having a points level close to or below the threshold) affects decisions about whether to steal from others, and also, how decisions about whether to cooperate or not are affected by the risk of being exploited. The ideas behind this experiment are described in a paper that you can read <a href="https://psyarxiv.com/p2aed/" target="_blank">here</a> (opens in a new window).
+
+<p>
+Thank you for taking part. Please return to Prolific by following <a href="www.prolific.co">this link</a>.                                       
+
+{% endblock %}

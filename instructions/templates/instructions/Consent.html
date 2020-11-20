@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}Consent{% endblock %}
+
+{% block content %}
+
+Thank you for your interest in this experiment. You will take part in a task with several other participants, who are also taking part online. You will not know who they are, and nor will they know who you are. You will be paid a bonus via Prolific whose size depends upon your decisions, and those of other participants in the experiment. This is in addition to the £2 guaranteed participation fee. 
+<p>
+The experiment should take about 15 minutes. This is a pilot version of the experiment; we are just trying to figure out if the software works and whether people understand and can complete the task. We are not yet testing any particular hypothesis. If you have any feedback on it, please message us via the Prolific message function. 
+<p>
+Your data will be stored anonymously and analysed at Newcastle University. If you have any concerns about the experiment or your participation in it, you can contact the principal investigator, Daniel Nettle, via Prolific or daniel.nettle@ncl.ac.uk. This study has been approved by the Faculty of Medical Sciences ethics committee at Newcastle University. 
+<p>
+To proceed to the experiment, please indicate that you have read this information and consent to take part. If you do not wish to take part, or you wish to withdraw at any time, just close your browser. There might be a short delay whilst you are matched to four other players before the experiment begins. 
+<p>
+Entering your Prolific ID correctly is essential so that we can pay you the right bonus. 
+<p>
+{% formfields %}
+
+{% next_button %}
+
+{% endblock %}
