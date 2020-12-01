@@ -10,13 +10,13 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 20
     steal_success_prob = 0.333
-    cooperation_payoff = c(20)
-    energy_cost = c(-10)
+    cooperation_payoff = c(5)
+    energy_cost = c(0)
     energy_stochasticity = 3
     victims_payoff = c(0)
-    steal_success_payoff = c(30)
-    steal_failure_payoff = c(-30)
-    lone_payoff = c(10)
+    steal_success_payoff = c(20)
+    steal_failure_payoff = c(-40)
+    lone_payoff = c(0)
     threshold = c(100)
     penalty = c(10)
 class Subsession(BaseSubsession):

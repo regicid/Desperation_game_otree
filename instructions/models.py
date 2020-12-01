@@ -26,18 +26,10 @@ class Group(BaseGroup):
         for i in range(n):
             p = self.get_player_by_id(i+1)
             p.participant.payoff = int(starting[i])
-        #p1 = self.get_player_by_id(1)
-        #p1.participant.payoff = starting[0]
-        #p2 = self.get_player_by_id(2)
-        #p2.participant.payoff = starting[1]
-        #p3 = self.get_player_by_id(3)
-        #p3.participant.payoff = starting[2]
-        #p4 = self.get_player_by_id(4)
-        #p4.participant.payoff = starting[3]
- 
+
 class Player(BasePlayer):
-    test1 = models.StringField(choices=[['-10 points', '- 10 points'], ['0 points', '0 points'], ['+ 10 points', '+ 10 points']], label='If you work alone, then by how much can you expect your points level to change that round, allowing for the points it takes to keep yourself alive?')
-    test2 = models.StringField(choices=[['- 30 points', '- 30 points'], ['+ 10 points', '+ 10 points'], ['+ 20 points', '+ 20 points']], label='If you and one other person in the group decides to cooperate, and no-one decides to steal, by how much can you expect your points level to change that round?')
+    test1 = models.StringField(choices=[['-10 points', '- 10 points'], ['0 points', '0 points'], ['+ 10 points', '+ 10 points']], label='If you work alone, then by how much can you expect your points level to change that round?')
+    test2 = models.StringField(choices=[['- 30 points', '- 30 points'], ['+ 5 points', '+ 5 points'], ['+ 20 points', '+ 20 points']], label='If you and one other person in the group decides to cooperate, and no-one decides to steal, by how much can you expect your points level to change that round?')
     test3 = models.StringField(choices=[['75 points', '80 points'], ['105 points', '120 points'], ['135 points', '130 points']], label='Say your points level is 110, you decide to steal, everyone else in the group decides to cooperate, and you get away with it. What will your points level be after the round?')
     consent = models.StringField(choices=[['Yes', 'Yes']], label='I consent to take part in this study. ', widget=widgets.RadioSelect)
     prolific_id = models.StringField(label='What is your Prolific ID?')

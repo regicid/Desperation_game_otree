@@ -7,9 +7,9 @@
 
 You are player number {{ player.id_in_group }} in your group. 
 <p> 
-This is round {{ player.round_number }}. 
+This is round {{ player.round_number }}. Your energy level is {{player.participant.payoff}} 
 <p>
-    
+<!--    
 The points levels of the members of your group are:
 <table class="table">
   <tr>
@@ -25,7 +25,7 @@ The points levels of the members of your group are:
       </tr>
   {% endfor %}
 </table>
-
+-->
 What is your decision for this round?
 
 {% formfields %}
