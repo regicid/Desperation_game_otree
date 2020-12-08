@@ -10,8 +10,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     initial_mean_energy_level = c(105)
-    ll_rounds = 4
-    ul_rounds = 12
+    ll_rounds = 8
+    ul_rounds = 16
     ll_initial_energy_level = c(96)
     ul_initial_energy_level = c(120)
 class Subsession(BaseSubsession):
@@ -29,7 +29,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     test1 = models.StringField(choices=[['-10 points', '- 10 points'], ['0 points', '0 points'], ['+ 10 points', '+ 10 points']], label='If you work alone, then by how much can you expect your points level to change that round?')
-    test2 = models.StringField(choices=[['- 30 points', '- 30 points'], ['+ 5 points', '+ 5 points'], ['+ 20 points', '+ 20 points']], label='If you and one other person in the group decides to cooperate, and no-one decides to steal, by how much can you expect your points level to change that round?')
-    test3 = models.StringField(choices=[['75 points', '80 points'], ['105 points', '120 points'], ['135 points', '130 points']], label='Say your points level is 110, you decide to steal, everyone else in the group decides to cooperate, and you get away with it. What will your points level be after the round?')
+    test2 = models.StringField(choices=[['- 30 points', '- 30 points'], ['+ 5 points', '+ 5 points'], ['+ 20 points', '+ 20 points']], label='If you and one other person in the group decides to cooperate, and no-one decides to steal, on average, by how much can you expect your points level to change that round?')
+    test3 = models.StringField(choices=[['80 points', '80 points'], ['120 points', '120 points'], ['130 points', '130 points']], label='Say your points level is 110, you decide to steal, everyone else in the group decides to cooperate, and you get away with it. What will your points level be, on average, after the round?')
     consent = models.StringField(choices=[['Yes', 'Yes']], label='I consent to take part in this study. ', widget=widgets.RadioSelect)
     prolific_id = models.StringField(label='What is your Prolific ID?')

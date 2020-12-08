@@ -10,12 +10,9 @@ In your group, {{ group.num_cooperators }} cooperated and {{ group.num_stealers 
 {{ player.outcome }}
 <p>
 Your energy level is now {{ player.participant.payoff }}. 
-Your payoff is {{ player.Payoff }}. {% if player.participant.payoff < Constants.threshold %} 
-<strong>(-10)</strong>
-{% endif %}
 
 {% if player.participant.payoff < Constants.threshold %} 
-<strong>You are currently below the threshold!</strong>
+<strong>You are currently below the threshold! Your bonus will be slashed! </strong>
 {% endif %}
                                                      
 {% next_button %}

@@ -13,7 +13,7 @@ class Constants(BaseConstants):
     cooperation_payoff = c(5)
     energy_cost = c(0)
     energy_stochasticity = 3
-    victims_payoff = c(0)
+    victims_payoff = c(-10)
     steal_success_payoff = c(20)
     steal_failure_payoff = c(-40)
     lone_payoff = c(0)
@@ -47,7 +47,7 @@ class Group(BaseGroup):
         self.num_cooperators = len(cooperators)
                 
         for player in players:
-            random_energy_cost = int(np.clip(np.random.normal(loc=Constants.energy_cost,scale=Constants.energy_stochasticity),-20,0).round())
+            random_energy_cost = int(np.clip(np.random.normal(loc=Constants.energy_cost,scale=Constants.energy_stochasticity),-5,5).round())
             if player.decision == 'Work alone':
                 player.delta_energy_level = random_energy_cost + Constants.lone_payoff
                 player.outcome = 'You worked alone.'

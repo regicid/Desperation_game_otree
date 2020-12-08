@@ -9,23 +9,6 @@ You are player number {{ player.id_in_group }} in your group.
 <p> 
 This is round {{ player.round_number }}. Your energy level is {{player.participant.payoff}} 
 <p>
-<!--    
-The points levels of the members of your group are:
-<table class="table">
-  <tr>
-      <th>Player</th>
-      <th>Points level</th>
-
-  </tr>
-  {% for other_player in group.get_players %}
-      <tr>
-          <td>{{ other_player.id_in_group }} 
-              {% if other_player.id_in_group == player.id_in_group %} You! {% endif %}</td>
-          <td>{{ other_player.participant.payoff}}</td>
-      </tr>
-  {% endfor %}
-</table>
--->
 What is your decision for this round?
 
 {% formfields %}
