@@ -1,0 +1,6 @@
+#!/bin/bash
+
+rm -r real_rounds
+cp -r mock_rounds real_rounds
+mv real_rounds/templates/mock_rounds real_rounds/templates/real_rounds
+sed -i -e 's/mock_game/real_game/g' real_rounds/models.py

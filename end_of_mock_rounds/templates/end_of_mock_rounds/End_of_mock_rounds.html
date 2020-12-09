@@ -4,7 +4,7 @@
 {% block title %}The mock rounds are finished{% endblock %}
 
 {% block content %}
-Now, the game is real. Your energy level will change at every round, depending on your actions. Remember that your payoff will be slahed by 10 for each round spent with an energy level below 100.
+Now, the game is real. Your energy level will change at every round, depending on your actions. Remember that your payoff will be slashed by {{session.config.penalty}} for each round spent with an energy level below {{session.config.threshold}}.
 {% next_button %}
 
 

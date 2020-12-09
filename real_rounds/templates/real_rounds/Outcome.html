@@ -17,7 +17,7 @@ This is a mock round, so your energy level is still {{ player.participant.payoff
 
 If the game were to end now, your cash bonus would be {{ player.virtual_cash_bonus }}p{% if player.participant.payoff < session.config.threshold %} 
 <strong>(-{{session.config.penalty}})</strong>
-{% endif %}. Remember that if it falls below {{ session.config.threshold }}, the cash bonus is slashed by {{session.config.penalty}}p at each round. 
+{% endif %}. Remember that if it falls below {{ session.config.threshold }}, the cash bonus is slashed by {{session.config.penalty}} pence at each round. 
 
 {% if player.participant.payoff < session.config.threshold %} 
 <strong>You are currently below the threshold!</strong>

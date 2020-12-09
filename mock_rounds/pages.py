@@ -5,7 +5,7 @@ from .models import Constants
 
 class Decide(Page):
     form_model = 'player'
-    form_fields = ['decision']
+    form_fields = ['decision','social_trust']
     timeout_seconds = 60
     timeout_submission = {'decision': 'Work alone'}
 class Wait_for_decision(WaitPage):
@@ -14,9 +14,12 @@ class Wait_for_decision(WaitPage):
 class Outcome(Page):
     form_model = 'player'
     def app_after_this_page(self, upcoming_apps):
-        
-        target_rounds = self.session.config['number_mock_rounds'] 
+        if self.session.vars['mocks_done']:
+            target_rounds = self.session.vars['nrounds']
+        else:
+            target_rounds = self.session.config['number_mock_rounds'] 
         if self.round_number + 1 > target_rounds:
+            self.session.vars['mocks_done']=True
             return upcoming_apps[0]
 
         

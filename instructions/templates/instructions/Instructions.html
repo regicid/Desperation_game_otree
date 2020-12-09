@@ -7,15 +7,15 @@
 
 Welcome to the experiment. 
 <p>
-In this experiment, you are working to gain energy points in a virtual environment. You are working in a group with 3 other participants. There are several rounds. You will start off the first round with a certain number of energy points. Your goal is to maintain your energy above the threshold of 100, and if possible accumulate as many points as possible. 
+In this experiment, you are working to gain energy points in a virtual environment. You are working in a group with 3 other participants. There are several rounds. You will start off the first round with a certain number of energy points. Your goal is to maintain your energy above the threshold of {{session.config.threshold}}, and if possible accumulate as many points as possible. 
 <p>
-At the end of the experiment, your points will be converted to a cash bonus at the rate of 3 pence for every point. However, will also deduct 50p for every round you spent with fewer than the threshold number of 100 points. 
+At the end of the experiment, your points will be converted to a cash bonus at the rate of 3 pence for every point. However, will also deduct {{session.config.penalty}}p for every round you spent with fewer than the threshold number of 100 points. 
 <p>
 In every round, you can make one of three choices. You can:
 <ul>
     <li> <strong>Work alone. </strong>Working alone gains leaves your energy level unchanged on average. 
-    <li> <strong>Cooperate with others.</strong> To cooperate, you put 10 points in to a joint venture. If someone else also cooperates (and no-one steals), then you get 15 points back, a gain of 5 points. However, someone might steal, in which case you would lose the 10 points you put in.  
-    <li> <strong>Steal from cooperators. </strong>If you decide to steal, and at least one person in the group decides to cooperate, then one of two things can happen. Either you get away with it, in which case you gain 20 points, or you are caught and punished, in which case you lose 40 points.</ul>         
+    <li> <strong>Cooperate with others.</strong> To cooperate, you put {{session.config.victims_payoff}} points in to a joint venture. If someone else also cooperates (and no-one steals), then you get {{group.cooperation_payback}} points back, a gain of {{session.config.cooperation_payoff}} points. However, someone might steal, in which case you would lose the {{session.config.victims_payoff}} points you put in.  
+    <li> <strong>Steal from cooperators. </strong>If you decide to steal, and at least one person in the group decides to cooperate, then one of two things can happen. Either you get away with it, in which case you gain {{session.config.steal_success_payoff}} points, or you are caught and punished, in which case you lose {{session.config.steal_failure_payoff}} points.</ul>         
 <p>
 Please note, if you choose to cooperate but everyone else in the group works alone, then you will work alone too. If you choose to steal but there are no cooperators, you will also work alone. 
 <p>
@@ -24,7 +24,6 @@ In addition, after each round, your energy points may fluctuate up or down by a 
 The first three rounds are just for practice. What you do in the first three rounds will not affect your energy points. 
 <p>
 Here are some questions to test your understanding of the experiment. 
-
 {% formfields %}
 
 {% next_button %}

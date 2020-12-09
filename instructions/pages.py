@@ -11,4 +11,4 @@ class Form_groups(WaitPage):
 class Instructions(Page):
     form_model = 'player'
     form_fields = ['test1', 'test2', 'test3']
-page_sequence = [Consent, Form_groups, Instructions]
+page_sequence = [Consent, Form_groups,Instructions]
