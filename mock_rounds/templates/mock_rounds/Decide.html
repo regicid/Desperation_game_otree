@@ -7,7 +7,7 @@
 
 You are player number {{ player.id_in_group }} in your group. 
 <p> 
-This is {% if not session.vars.mocks_done %} practice {% endif %} round {{ player.round_number }}. Your energy level is {{player.participant.payoff}}.
+This is {% if not participant.vars.mocks_done %} practice {% endif %} round {{ player.round_number }}. Your energy level is {{player.participant.payoff}}.
 <p>
     
 <!--

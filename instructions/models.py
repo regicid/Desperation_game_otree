@@ -1,4 +1,3 @@
-
 from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
@@ -29,6 +28,8 @@ class Group(BaseGroup):
         for i in range(n):
             p = self.get_player_by_id(i+1)
             p.participant.payoff = int(starting[i])
+            p.participant.vars['mocks_done'] = False
+            p.participant.vars['rounds_below_threshold'] = 0
 
 class Player(BasePlayer):
     test1 = models.StringField(label='If you work alone, then how much can you expect your energy points level to gain that round?')

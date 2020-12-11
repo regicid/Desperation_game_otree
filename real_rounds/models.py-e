@@ -53,7 +53,7 @@ class Group(BaseGroup):
                 player.outcome = 'You worked alone.'
             elif player.decision == 'Cooperate' and self.num_cooperators < 2 and self.num_stealers == 0:
                 player.delta_energy_level = lone_payoff
-                player.outcome = 'No-one else wanted to cooperate. You had to work alone'
+                player.outcome = ' You had to work alone'
             elif player.decision == 'Cooperate' and self.num_cooperators > 1 and self.num_stealers == 0:
                 player.delta_energy_level = cooperation_payoff
                 player.outcome = 'You cooperated successfully.'
@@ -61,6 +61,9 @@ class Group(BaseGroup):
                 if self.coin_toss < steal_success_prob:
                     player.delta_energy_level = -victims_payoff
                     player.outcome = 'You were stolen from.'
+                elif self.num_cooperators < 2:
+                    player.outcome = 'Someone tried to steal but you caught them. However, no-one else wanted to cooperate.'
+                    player.delta_energy_level = lone_payoff
                 else: 
                     player.delta_energy_level = cooperation_payoff
                     player.outcome = 'Someone tried to steal but you caught them.'
@@ -76,12 +79,13 @@ class Group(BaseGroup):
                 player.outcome = 'You tried to steal but there was no-one cooperating to steal from.'
                         
         for player in players: 
-            if self.session.vars['mocks_done']:
+            if player.participant.vars['mocks_done']:
                 player.participant.payoff = player.participant.payoff + player.delta_energy_level + player.random_energy_cost
                 player.current_running = player.participant.payoff
-                player.rounds_below_threshold += player.participant.payoff < threshold
+                player.participant.vars['rounds_below_threshold'] += player.participant.payoff < threshold
             else:
                 player.mock_payoff = player.participant.payoff + player.delta_energy_level
+            player.rounds_below_threshold = player.participant.vars['rounds_below_threshold']
             player.virtual_cash_bonus = np.array(self.session.config['real_world_currency_per_point']*int(player.participant.payoff) - 
                 self.session.config['penalty']*player.rounds_below_threshold).clip(0)
 class Player(BasePlayer):
@@ -92,6 +96,6 @@ class Player(BasePlayer):
     delta_energy_level = models.CurrencyField(initial=0)
     random_energy_cost = models.CurrencyField(initial=0)
     mock_payoff = models.CurrencyField()
-    rounds_below_threshold = models.IntegerField(initial=0)
+    rounds_below_threshold = models.IntegerField()
     virtual_cash_bonus = models.IntegerField()
     current_running = models.CurrencyField()
