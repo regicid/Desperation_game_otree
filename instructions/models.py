@@ -31,13 +31,13 @@ class Group(BaseGroup):
             p.participant.payoff = int(starting[i])
 
 class Player(BasePlayer):
-    test1 = models.StringField(label='If you work alone, then by how much points can you expect your points level to gain that round?')
+    test1 = models.StringField(label='If you work alone, then how much can you expect your energy points level to gain that round?')
     def test1_choices(self):
         return [[f'{self.session.config["lone_payoff"]-10} points', f'{self.session.config["lone_payoff"]-10} points'], [f'{self.session.config["lone_payoff"]} points', f'{self.session.config["lone_payoff"]} points'], [f'{self.session.config["lone_payoff"]+10} points', f'{self.session.config["lone_payoff"]+10} points']]
-    test2 = models.StringField(label='If you and one other person in the group decides to cooperate, and no-one decides to steal, on average, how much points can you expect to gain that round?')
+    test2 = models.StringField(label='If you and one other person in the group decides to cooperate, and no-one decides to steal, how much do you expect your energy points level to gain that round?')
     def test2_choices(self):
         return [[f'{self.session.config["cooperation_payoff"]-25} points', f'{self.session.config["cooperation_payoff"]-25} points'], [f'{self.session.config["cooperation_payoff"]} points', f'{self.session.config["cooperation_payoff"]} points'], [f'{self.session.config["cooperation_payoff"]+15} points', f'{self.session.config["cooperation_payoff"]+15} points']]
-    test3 = models.StringField(label='Say your points level is 110, you decide to steal, everyone else in the group decides to cooperate, and you get away with it. What will your points level be, on average, after the round?')
+    test3 = models.StringField(label='Say your points level is 110, you decide to steal, everyone else in the group decides to cooperate, and you get away with it. What do you expected your energy points level to be after the round?')
     def test3_choices(self):
         return [[f'{110+self.session.config["steal_success_payoff"]-50} points', f'{110+self.session.config["steal_success_payoff"]-50} points'], [f'{110+self.session.config["steal_success_payoff"]-10} points', f'{110+self.session.config["steal_success_payoff"]-10} points'], [f'{110+self.session.config["steal_success_payoff"]} points', f'{110+self.session.config["steal_success_payoff"]} points']]
     consent = models.StringField(choices=[['Yes', 'Yes']], label='I consent to take part in this study. ', widget=widgets.RadioSelect)
