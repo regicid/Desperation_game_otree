@@ -88,13 +88,17 @@ class Group(BaseGroup):
             player.rounds_below_threshold = player.participant.vars['rounds_below_threshold']
             player.virtual_cash_bonus = np.array(self.session.config['real_world_currency_per_point']*int(player.participant.payoff) - 
                 self.session.config['penalty']*player.rounds_below_threshold).clip(0)
+            player.delta_energy_level_absolute = np.abs(delta_energy_level)
+            player.random_energy_cost_absolute = np.abs(random_energy_cost)
 class Player(BasePlayer):
     decision = models.StringField(choices=[['Work alone', 'Work alone'], ['Cooperate', 'Cooperate'], ['Steal', 'Steal']], widget=widgets.RadioSelect)
     social_trust = models.IntegerField(choices=[[i,i] for i in range(11)], label = "How well do you trust the other members of your group to cooperate?")
     outcome = models.LongStringField()
     energy_level = models.CurrencyField()
     delta_energy_level = models.CurrencyField(initial=0)
+    delta_energy_level_absolute = models.CurrencyField(initial=0)
     random_energy_cost = models.CurrencyField(initial=0)
+    random_energy_cost_absolute = models.CurrencyField(initial=0)
     mock_payoff = models.CurrencyField()
     rounds_below_threshold = models.IntegerField()
     virtual_cash_bonus = models.IntegerField()
