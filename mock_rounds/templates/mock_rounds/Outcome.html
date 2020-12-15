@@ -5,27 +5,23 @@
 
 {% block content %}
 
-In your group, {{ group.num_cooperators }} cooperated and {{ group.num_stealers }} tried to steal, which means you {% if player.delta_energy_level >= 0 %} gained {% else %} lost {% endif %} {{ player.delta_energy_level_absolute }}. {% if participant.vars.mocks_done %} In addition, you {% if player.random_energy_cost >= 0 %} gained {% else %} lost {% endif %} {{ player.random_energy_cost_absolute }} randomly. {% endif %}
+In your group, {{ group.num_cooperators }} cooperated and {{ group.num_stealers }} tried to steal, which means you {% if player.delta_energy_level >= 0 %} gained {% else %} lost {% endif %} {{ player.delta_energy_level_absolute }}. 
 <p>
 {{ player.outcome }}
 <p>
-{% if participant.vars.mocks_done %} Your energy level is now {{ player.participant.payoff }}.
+In addition, you {% if player.random_energy_cost >= 0 %} gained {% else %} lost {% endif %} {{ player.random_energy_cost_absolute }} randomly. 
+<p>
+{% if participant.vars.mocks_done %} Your energy level is now {{ player.participant.payoff }}. If the game were to end now, your cash bonus would be {{ player.virtual_cash_bonus }}p. 
 {% else %}
 This is a mock round, so your energy level is still {{ player.participant.payoff }}. If the round was real, it would now be {{player.mock_payoff}}. {% endif %}
 
-
-
-If the game were to end now, your cash bonus would be {{ player.virtual_cash_bonus }}p{% if player.participant.payoff < session.config.threshold %} 
-<strong>This round you received a penalty to your bonus of: (-{{session.config.penalty}})</strong>
-{% endif %}. Remember that whenever your energy points fall below {{ session.config.threshold }}, the cash bonus is slashed by {{session.config.penalty}}p at each round. 
+<p>
+Remember that whenever your energy points fall below {{ session.config.threshold }}, the cash bonus is slashed by {{session.config.penalty}}p each round. 
 
 {% if player.participant.payoff < session.config.threshold %} 
-<strong>You are currently below the threshold!</strong>
+<strong>This round you received a penalty, because your energy points are below the threshold!</strong>
 {% endif %}
                                                      
 {% next_button %}
-
-
-
 
 {% endblock %}
