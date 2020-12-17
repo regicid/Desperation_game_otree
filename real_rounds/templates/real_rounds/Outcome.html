@@ -11,7 +11,7 @@ In your group, {{ group.num_cooperators }} cooperated and {{ group.num_stealers 
 <p>
 In addition, you {% if player.random_energy_cost >= 0 %} gained {% else %} lost {% endif %} {{ player.random_energy_cost_absolute }} randomly. 
 <p>
-{% if participant.vars.mocks_done %} Your energy level is now {{ player.participant.payoff }}. If the game were to end now, your cash bonus would be {{ player.virtual_cash_bonus }}p. 
+{% if participant.vars.mocks_done %} Your energy level is now {{ player.participant.payoff }}. If the game were to end now, your cash bonus would be {{ player.participant.vars.virtual_cash_bonus }}p. 
 {% else %}
 This is a mock round, so your energy level is still {{ player.participant.payoff }}. If the round was real, it would now be {{player.mock_payoff}}. {% endif %}
 

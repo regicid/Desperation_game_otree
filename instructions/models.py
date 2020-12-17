@@ -17,10 +17,12 @@ class Subsession(BaseSubsession):
     pass
 class Group(BaseGroup):
     cooperation_payback = models.IntegerField()
+    steal_failure_payoff_absolute = models.IntegerField()
     def group_formation(self):
-        self.cooperation_payback = self.session.config['cooperation_payoff'] + self.session.config['victims_payoff']
         import random
         import numpy as np
+        self.cooperation_payback = self.session.config['cooperation_payoff'] + self.session.config['victims_payoff']
+        self.steal_failure_payoff_absolute = np.abs(self.session.config["steal_failure_payoff"])
         self.session.vars['nrounds'] = random.uniform (Constants.ll_rounds, Constants.ul_rounds)
         self.session.vars['mocks_done'] = False
         n = self.session.config['num_demo_participants']

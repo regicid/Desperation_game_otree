@@ -15,7 +15,7 @@ In every round, you will be put into a group with three other participants, not 
 <ul>
     <li> <strong>Work alone. </strong>Working alone gains leaves your energy level unchanged on average. 
     <li> <strong>Cooperate with others.</strong> To cooperate, you put {{session.config.victims_payoff}} points in to a joint venture. If someone else also cooperates (and no-one steals), then you get {{group.cooperation_payback}} points back, a gain of {{session.config.cooperation_payoff}} points. However, someone might steal, in which case you would lose the {{session.config.victims_payoff}} points you put in.  
-    <li> <strong>Steal from cooperators. </strong>If you decide to steal, and at least one person in the group decides to cooperate, then one of two things can happen. Either you get away with it, in which case you get {{session.config.steal_success_payoff}} points, or you are caught and punished, in which case you get {{session.config.steal_failure_payoff}} points. The probability of getting away with it is {{session.config.steal_success_prob}}.</ul>         
+    <li> <strong>Steal from cooperators. </strong>If you decide to steal, and at least one person in the group decides to cooperate, then one of two things can happen. Either you get away with it, in which case you get {{session.config.steal_success_payoff}} points, or you are caught and punished, in which case you lose {{group.steal_failure_payoff_absolute}} points. The probability of getting away with it is {{session.config.steal_success_prob}}.</ul>         
 <p>
 Please note, if you choose to cooperate but everyone else in the group works alone, then you will work alone too. If you choose to steal but there are no cooperators, you will also work alone. 
 <p>

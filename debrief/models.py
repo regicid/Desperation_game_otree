@@ -12,6 +12,13 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     pass
 class Group(BaseGroup):
-    pass
+    def reckoning(self):
+    	players = self.get_players()
+    	for player in players:
+    		player.cash_bonus = np.array(self.session.config['real_world_currency_per_point']*int(player.participant.payoff) - 
+                self.session.config["penalty"]*player.participant.vars['rounds_below_threshold']).clip(0)
+            
+
+
 class Player(BasePlayer):
     pass
