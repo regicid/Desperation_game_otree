@@ -7,7 +7,7 @@ from otree.api import (
 doc = ''
 class Constants(BaseConstants):
     name_in_url = 'real_game'
-    players_per_group = 2
+    players_per_group = 4
     num_rounds = 20
 class Subsession(BaseSubsession):
     def creating_session(self):
