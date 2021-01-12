@@ -51,7 +51,7 @@ class Group(BaseGroup):
         for player in players:
             player.random_energy_cost = c(int(np.clip(np.random.normal(loc=energy_cost,scale=energy_stochasticity),-10,10).round()))
             if self.session.config['mean_regression']:
-                player.random_energy_cost = c(int(np.clip(np.random.normal(loc=r*(mu-player.participant.payoff),scale=(1-r**2)/(1-r)**2 * sigma**2),-10,10).round()))
+                player.random_energy_cost = c(int(np.clip(np.random.normal(loc=r*(mu-player.participant.payoff),scale=r**2*(1-r**2)/(1-r)**2 * sigma**2),-10,10).round()))
             if player.decision == 'Work alone':
                 player.delta_energy_level = lone_payoff
                 player.outcome = 'You worked alone.'
