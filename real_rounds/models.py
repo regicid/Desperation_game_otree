@@ -91,7 +91,7 @@ class Group(BaseGroup):
                 player.mock_payoff = player.participant.payoff + player.delta_energy_level + player.random_energy_cost
             player.rounds_below_threshold = player.participant.vars['rounds_below_threshold']
             player.participant.vars['virtual_cash_bonus'] = np.array(self.session.config['real_world_currency_per_point']*int(player.participant.payoff) - 
-                self.session.config['penalty']*player.rounds_below_threshold).clip(0)
+                self.session.config['penalty']*player.rounds_below_threshold*self.session.config['desperation']).clip(0)
             player.delta_energy_level_absolute = np.abs(player.delta_energy_level)
             player.random_energy_cost_absolute = np.abs(player.random_energy_cost)
 class Player(BasePlayer):

@@ -7,9 +7,9 @@
 
 Welcome to the experiment. 
 <p>
-In this experiment, you are working to gain energy points in a virtual environment. There are several rounds. You will start off the first round with a certain number of energy points. Your goal is to maintain your energy above the threshold of {{session.config.threshold}}, and if possible accumulate as many points as possible. 
+In this experiment, you are working to gain energy points in a virtual environment. There are several rounds. You will start off the first round with a certain number of energy points. Your goal is to {% if session.config.desperation %}maintain your energy above the threshold of {{session.config.threshold}}, and if possible {% endif %} accumulate as many points as possible. 
 <p>
-At the end of the experiment, your points will be converted to a cash bonus at the rate of 3 pence for every point. However, we will deduct {{session.config.penalty}}p from you cash bonus for every round you spent with fewer than the threshold number of 100 points. 
+At the end of the experiment, your points will be converted to a cash bonus at the rate of 3 pence for every point. {% if session.config.desperation %} However, we will deduct {{session.config.penalty}}p from you cash bonus for every round you spent with fewer than the threshold number of 100 points. {% endif %}
 <p>
 In every round, you will be put into a group with three other participants, not necessarily the same ones in each round. You can make one of three choices. You can:
 <ul>

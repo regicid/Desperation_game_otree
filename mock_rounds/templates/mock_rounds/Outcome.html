@@ -16,11 +16,11 @@ In addition, you {% if player.random_energy_cost >= 0 %} gained {% else %} lost 
 This is a mock round, so your energy level is still {{ player.participant.payoff }}. If the round was real, it would now be {{player.mock_payoff}}. {% endif %}
 
 <p>
-Remember that whenever your energy points fall below {{ session.config.threshold }}, the cash bonus is slashed by {{session.config.penalty}}p each round. 
+{% if session.config.desperation %} Remember that whenever your energy points fall below {{ session.config.threshold }}, the cash bonus is slashed by {{session.config.penalty}}p each round. 
 
 {% if player.participant.payoff < session.config.threshold %} 
 <strong>This round you received a penalty, because your energy points are below the threshold!</strong>
-{% endif %}
+{% endif %} {% endif %}
                                                      
 {% next_button %}
 
