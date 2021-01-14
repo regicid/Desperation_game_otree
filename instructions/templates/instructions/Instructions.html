@@ -11,7 +11,7 @@ In this experiment, you are working to gain energy points in a virtual environme
 <p>
 At the end of the experiment, your points will be converted to a cash bonus at the rate of 3 pence for every point. {% if session.config.desperation %} However, we will deduct {{session.config.penalty}}p from you cash bonus for every round you spent with fewer than the threshold number of 100 points. {% endif %}
 <p>
-In every round, you will be put into a group with three other participants, not necessarily the same ones in each round. You can make one of three choices. You can:
+In every round, you will be put into a group with {{session.vars.num_partners}} other participants, not necessarily the same ones in each round. You can make one of three choices. You can:
 <ul>
     <li> <strong>Work alone. </strong>Working alone gains leaves your energy level unchanged on average. 
     <li> <strong>Cooperate with others.</strong> To cooperate, you put {{session.config.victims_payoff}} points in to a joint venture. If someone else also cooperates (and no-one steals), then you get {{group.cooperation_payback}} points back, a gain of {{session.config.cooperation_payoff}} points. However, someone might steal, in which case you would lose the {{session.config.victims_payoff}} points you put in.  

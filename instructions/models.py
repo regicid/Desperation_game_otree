@@ -26,6 +26,7 @@ class Group(BaseGroup):
         self.session.vars['nrounds'] = random.uniform (Constants.ll_rounds, Constants.ul_rounds)
         self.session.vars['mocks_done'] = False
         n = self.session.config['num_demo_participants']
+        self.session.vars['num_partners'] = n - 1
         starting = np.random.normal(loc=self.session.config['initial_mean_energy_level'],scale=self.session.config['initial_std_energy_level'],size=n).round().astype('int').clip(100,200)
         for i in range(n):
             p = self.get_player_by_id(i+1)
